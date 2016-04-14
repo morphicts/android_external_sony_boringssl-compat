@@ -69,6 +69,32 @@
 #include <openssl/x509.h>
 #include <openssl/rsa.h>
 
+/* TS */
+void ENGINE_cleanup(void)
+{
+}
+
+/* TS */
+void OBJ_cleanup(void)
+{
+}
+
+/* TS */
+int EVP_EncryptFinal(EVP_CIPHER_CTX *ctx, unsigned char *out, int *outl)
+	{
+	int ret;
+	ret = EVP_EncryptFinal_ex(ctx, out, outl);
+	return ret;
+	}
+
+/* TS */
+int EVP_DecryptFinal(EVP_CIPHER_CTX *ctx, unsigned char *out, int *outl)
+	{
+	int ret;
+	ret = EVP_DecryptFinal_ex(ctx, out, outl);
+	return ret;
+	}
+
 int EVP_OpenUpdate(EVP_CIPHER_CTX *ctx, uint8_t *out, int *out_len,
                       const uint8_t *in, int in_len)
     {
